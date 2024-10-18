@@ -41,10 +41,10 @@ class RequestClassifierAgent:
         self.user_proxy = UserProxyAgent("user", human_input_mode="ALWAYS", code_execution_config=False)
         self.guidance_agent = AssistantAgent("guidance_labeler", llm_config=self.llm_config,
                                              system_message="You decide if the user is making a request or not, as far as the category of it.")
-
+        
     def generate_structured_class(self, recipient, messages, sender, config):
-        gpt = models.OpenAI("gpt-3.5-turbo-0125", api_key=self.llm_config.get("api_key"), echo=False)
-
+        gpt = models.OpenAI("gpt-3.5-turbo-0125",api_key=self.llm_config.get("api_key"),
+                            temperature=0.0, top_p=1.0, echo=False)
         # Initialize interaction with system message
         with system():
             lm = gpt + recipient.system_message
