@@ -56,7 +56,7 @@ def generate_structured_class(recipient, messages, sender, config):
 def configure_logging(filename, level, format):
     logging.basicConfig(filename=filename, level=level, format=format)
 
-def process_requests_and_log_to_excel(dataset_path, classifier_agent, output_file='classification_results.xlsx'):
+def process_requests_and_log_to_excel(dataset_path, classifier_agent, output_file):
     # Check if dataset exists
     if not os.path.exists(dataset_path):
         logging.error(f"Dataset file not found: {dataset_path}")

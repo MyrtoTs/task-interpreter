@@ -13,7 +13,7 @@ response_prompt_instructions = """The label must be a JSON of the format:
 }"""
 
 log_config = {
-    "filename": "classification_errors.log",
+    "filename": "results/classification_errors.log",
     "level": logging.ERROR,
     "format": '%(asctime)s - %(levelname)s - %(message)s'
 }
