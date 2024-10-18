@@ -53,6 +53,9 @@ def generate_structured_class(recipient, messages, sender, config):
 
     return True, verified_response if is_valid_json else response
 
+def configure_logging(filename, level, format):
+    logging.basicConfig(filename=filename, level=level, format=format)
+
 def process_requests_and_log_to_excel(dataset_path, classifier_agent, output_file='classification_results.xlsx'):
     # Check if dataset exists
     if not os.path.exists(dataset_path):

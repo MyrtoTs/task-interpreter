@@ -122,7 +122,7 @@ class RequestClassifierAgent:
 dataset_path = 'requests_dataset/requests_dataset.json'
 if __name__ == "__main__":
     # Configure logging
-    configure_logging()
+    configure_logging(**log_config)
 
     # Initialize your classifier agent (assuming the class RequestClassifierAgent exists and is correctly implemented)
     classifier_agent = RequestClassifierAgent(llm_config_35)

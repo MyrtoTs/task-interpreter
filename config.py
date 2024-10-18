@@ -12,9 +12,8 @@ response_prompt_instructions = """The label must be a JSON of the format:
     "request_category": str
 }"""
 
-def configure_logging():
-    logging.basicConfig(
-        filename='classification_errors.log',
-        level=logging.ERROR,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
+log_config = {
+    "filename": "classification_errors.log",
+    "level": logging.ERROR,
+    "format": '%(asctime)s - %(levelname)s - %(message)s'
+}
