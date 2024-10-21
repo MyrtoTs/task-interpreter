@@ -121,12 +121,21 @@ class RequestClassifierAgent:
             a = "GEOSPATIAL_QA"
         content["request_category"] = a
 
-        if content["request_category"] in ["OBJECT_COUNTING", "IMAGE_SEGMENTATION"]:
+        if content["request_category"] in ["OBJECT_COUNTING", "IMAGE_SEGMENTATION", "IMAGE_RETRIEVAL_BY_IMAGE"]:
+            full_message_2 = f"""
+                Possible request types are: {content["request_category"]}, BINARY_VISUAL_QA.
+                If the request can be answered with Yes/No then make the request category BINARY_VISUAL_QA.
+                Label the USER_INPUT via the following instructions:
+
+                {response_prompt_instructions}
+
+                USER_INPUT: {input_message}
+            """
                     # Initiate chat with the appropriate prompt
             self.user_proxy.initiate_chat(
                 self.guidance_agent,
                 max_turns=1,
-                message=full_message + f"""\nIf it can be answered with Yes/No then request category should be BINARY_VISUAL_QA."""
+                message=full_message_2 
             )
             content = json.loads(self.user_proxy.chat_messages[self.guidance_agent][-1]["content"])
 
@@ -135,8 +144,8 @@ class RequestClassifierAgent:
 
 
 # Example usage
-dataset_path = 'requests_dataset/requests_dataset.json'
-output_file ='results/classification_results.xlsx'
+dataset_path = '../requests_dataset/requests_dataset.json'
+output_file ='../results/classification_results.xlsx'
 if __name__ == "__main__":
     # Configure logging
     configure_logging(**log_config)
