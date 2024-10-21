@@ -15,7 +15,7 @@ class Response_Image(BaseModel):
     request_existence: bool
     explanation: str
     request_category: Literal[
-        'IMAGE_RETRIEVAL_BY_IMAGE', 'VISUAL_QA', 'IMAGE_SEGMENTATION', 'OBJECT_COUNTING', 'None'
+        'IMAGE_RETRIEVAL_BY_IMAGE', 'BINARY_VISUAL_QA', 'IMAGE_SEGMENTATION', 'OBJECT_COUNTING', 'None'
     ]
 
 # Define response model for non-image-related requests
@@ -90,7 +90,7 @@ class RequestClassifierAgent:
     def request_existence_and_classification(self, user_input, contains_image=False):
         # Select the appropriate categories based on whether the input contains an image
         if contains_image:
-            request_types = "IMAGE_RETRIEVAL_BY_IMAGE, VISUAL_QA, IMAGE_SEGMENTATION, OBJECT_COUNTING, None"
+            request_types = "IMAGE_RETRIEVAL_BY_IMAGE, BINARY_VISUAL_QA, IMAGE_SEGMENTATION, OBJECT_COUNTING, None"
             input_message = f"Given this satellite image: {user_input}"
         else:
             request_types = "IMAGE_RETRIEVAL_BY_CAPTION, IMAGE_RETRIEVAL_BY_METADATA, GEOGRAPHY_QA, None"
@@ -115,6 +115,22 @@ class RequestClassifierAgent:
         
         # Parse the last message's content from the guidance agent's response
         content = json.loads(self.user_proxy.chat_messages[self.guidance_agent][-1]["content"])
+        
+        a = content["request_category"]
+        if content["request_category"]=="GEOGRAPHY_QA":
+            a = "GEOSPATIAL_QA"
+        content["request_category"] = a
+
+        if content["request_category"] in ["OBJECT_COUNTING", "IMAGE_SEGMENTATION"]:
+                    # Initiate chat with the appropriate prompt
+            self.user_proxy.initiate_chat(
+                self.guidance_agent,
+                max_turns=1,
+                message=full_message + f"""\nIf it can be answered with Yes/No then request category should be BINARY_VISUAL_QA."""
+            )
+            content = json.loads(self.user_proxy.chat_messages[self.guidance_agent][-1]["content"])
+
+
         return content["request_existence"], content["request_category"]
 
 

@@ -79,7 +79,7 @@ def process_requests_and_log_to_excel(dataset_path, classifier_agent, output_fil
         expected_category = entry.get('category', 'None')
 
         # Determine if request has an image context or not
-        has_image = expected_category in ["IMAGE_RETRIEVAL_BY_IMAGE", "VISUAL_QA", "IMAGE_SEGMENTATION", "OBJECT_COUNTING"]
+        has_image = expected_category in ["IMAGE_RETRIEVAL_BY_IMAGE", "BINARY_VISUAL_QA", "IMAGE_SEGMENTATION", "OBJECT_COUNTING"]
         try:
             # Call the classifier agent to process the request
             request_existence, detected_category = classifier_agent.request_existence_and_classification(user_input, contains_image=has_image)

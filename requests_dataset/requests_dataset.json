@@ -181,63 +181,63 @@
     },
     {
         "request": "Is a water area present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a grass area present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Are there less residential buildings than roads?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a residential area present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a road on the right of a landfill present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Are there less residential buildings than landfills?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Are there less roads than buildings?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is there a medium commercial building?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is there a commercial building at the bottom of a water area?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is there a commercial building on the right of the road?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is there a road?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is there a square building?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a depot present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a salt pond present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Is a garage present?",
-        "category": "VISUAL_QA"
+        "category": "BINARY_VISUAL_QA"
     },
     {
         "request": "Identify and extract all commercial buildings",
