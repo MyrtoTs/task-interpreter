@@ -108,4 +108,3 @@ def process_requests_and_log_to_excel(dataset_path, classifier_agent, output_fil
     # Save the results to an Excel file
     df.to_excel(output_file, index=False)
     print(f"Results have been saved to {output_file}")
-

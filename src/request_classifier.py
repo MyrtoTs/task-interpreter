@@ -7,9 +7,6 @@ import json
 from config import *
 from utils import *
 
-# Define LLM model
-gpt = models.OpenAI("gpt-3.5-turbo-0125", api_key=llm_config_35.get("api_key"))
-
 # Define response model for image-related requests
 class Response_Image(BaseModel):
     request_existence: bool
