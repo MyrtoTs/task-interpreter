@@ -138,17 +138,3 @@ class RequestClassifierAgent:
 
 
         return content["request_existence"], content["request_category"]
-
-
-# Example usage
-dataset_path = '../requests_dataset/requests_dataset.json'
-output_file ='../results/classification_results.xlsx'
-if __name__ == "__main__":
-    # Configure logging
-    configure_logging(**log_config)
-
-    # Initialize your classifier agent (assuming the class RequestClassifierAgent exists and is correctly implemented)
-    classifier_agent = RequestClassifierAgent(llm_config_35)
-
-    # Process requests and log results to an Excel file
-    process_requests_and_log_to_excel(dataset_path,classifier_agent, output_file)

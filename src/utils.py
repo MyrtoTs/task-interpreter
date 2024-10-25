@@ -46,7 +46,7 @@ def verify_json_response(lm):
     return lm["initial_response"], False
 
 def generate_structured_class(recipient, messages, sender, config):
-    gpt = models.OpenAI("gpt-3.5-turbo-0125", api_key=llm_config_35.get("api_key"), echo=False)
+    gpt = models.OpenAI("gpt-3.5-turbo-0125", api_key=llm_config_35.get("api_key"),temperature=0.0, top_p=1.0, echo=False)
     lm = handle_messages(gpt, recipient, messages)
     response = generate_response(lm)
     verified_response, is_valid_json = verify_json_response(lm)
