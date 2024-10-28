@@ -1,57 +1,9 @@
 from config import *
-from guidance import assistant, gen, models,system, user
+# from guidance import assistant, gen, models,system, user
 import json
 import os
 import pandas as pd
 import logging
-
-def handle_messages(gpt, recipient, messages):
-    with system():
-        lm = gpt + recipient.system_message
-
-    for message in messages:
-        if message.get("role") == "user":
-            with user():
-                lm += message.get("content")
-        else:
-            with assistant():
-                lm += message.get("content")
-    return lm
-
-def generate_response(lm):
-    with assistant():
-        lm += gen(name="initial_response")
-    return lm["initial_response"]
-
-def verify_json_response(lm):
-    with user():
-        lm += "Does the very last response from you contain JSON object? Respond with yes or no."
-    with assistant():
-        lm += gen(name="contains_json")
-
-    if "yes" in lm["contains_json"].lower():
-        with user():
-            lm += (
-                "What was that JSON object? Only respond with that valid JSON string. A valid JSON string starts with {"
-            )
-        with assistant():
-            lm += "{" + gen(name="json")
-        response = "{" + lm["json"]
-        # verify that the response is valid json
-        try:
-            response_obj = structure.model_validate_json(response)
-            return response_obj.model_dump_json(), True
-        except Exception as e:
-            return str(e), False
-    return lm["initial_response"], False
-
-def generate_structured_class(recipient, messages, sender, config):
-    gpt = models.OpenAI("gpt-3.5-turbo-0125", api_key=llm_config_35.get("api_key"),temperature=0.0, top_p=1.0, echo=False)
-    lm = handle_messages(gpt, recipient, messages)
-    response = generate_response(lm)
-    verified_response, is_valid_json = verify_json_response(lm)
-
-    return True, verified_response if is_valid_json else response
 
 def configure_logging(filename, level, format):
     logging.basicConfig(filename=filename, level=level, format=format)

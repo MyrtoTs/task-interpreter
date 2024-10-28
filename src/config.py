@@ -22,3 +22,5 @@ log_config = {
     "level": logging.ERROR,
     "format": '%(asctime)s - %(levelname)s - %(message)s'
 }
+
+vessel_msg = "My 'Search by Caption' engine is designed to help you specifically with image searches related to vessels."

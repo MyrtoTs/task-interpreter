@@ -13,7 +13,7 @@ class ChatAgent:
         self.agent = ConversableAgent(
             "chatbot",
             llm_config=llm_config,
-            system_message=system_message,
+            system_message="If the user wants to discuss something irrelevant to your service you kindly and briefly say that you can NOT help them with that.",
             code_execution_config=False,  # Disable code execution
             function_map=None,  # No registered functions
             human_input_mode="NEVER"  # No human input required
