@@ -10,13 +10,6 @@ llm_config_35 = {
     }]
 }
 
-response_prompt_instructions = """The label must be a JSON of the format:
-{
-    "request_existence": bool,
-    "explanation": str,
-    "request_category": str
-}"""
-
 log_config = {
     "filename": "results/classification_errors.log",
     "level": logging.ERROR,
