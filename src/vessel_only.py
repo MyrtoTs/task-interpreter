@@ -3,7 +3,7 @@ from autogen import AssistantAgent, UserProxyAgent
 import json
 
 # Constants
-VESSEL_PROMPT_INSTRUCTIONS = """
+vessel_prompt_instructions= """
 The label must be a JSON of the format:
 {
     "vessel_topic": bool,
@@ -30,7 +30,7 @@ class VesselAgent :
             message=f"""
             Determine whether the input relates to the vessel domain, including stating the absence of them.
             Follow these labeling instructions:
-            {VESSEL_PROMPT_INSTRUCTIONS}
+            {vessel_prompt_instructions}
             User Input: {user_input}
             """
         )
