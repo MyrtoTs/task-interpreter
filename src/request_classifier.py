@@ -28,7 +28,7 @@ class RequestClassifierAgent:
             input_message = f"Given this satellite image: {user_input}"
         else:
             request_types = "IMAGE_RETRIEVAL_BY_CAPTION, IMAGE_RETRIEVAL_BY_METADATA, GEOGRAPHY_QA, None"
-            input_message = f"{user_input}"
+            input_message = f"{user_input}.\n Geoentities are considered metadata."
 
         # Generate the full message based on the input type
         full_message = f"""
