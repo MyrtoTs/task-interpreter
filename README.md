@@ -22,7 +22,7 @@ The Task Interpreter is implemented as a multi-agent system, with the agents bei
    export OPENAI_API_KEY='your_openai_api_key_here'
    ```
 
-## Run the Task Interpreter
+## Run 
 
 ```
 python3 main.py
