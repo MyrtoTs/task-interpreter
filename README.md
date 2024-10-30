@@ -24,9 +24,7 @@ The Task Interpreter is implemented as a multi-agent system, with the agents bei
 
 ## Run 
 
-```
-python3 main.py
-```
+The main script is `main.py`. 
 
-You can find the dialogues conducted in `dialogues` directory.
+You can find the dialogues conducted in the `dialogues` directory.
 
