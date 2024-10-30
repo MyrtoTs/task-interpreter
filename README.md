@@ -24,7 +24,6 @@ The Task Interpreter is implemented as a multi-agent system, with the agents bei
 
 ## Run 
 
-The main script is `main.py`. 
-
-You can find the dialogues conducted in the `dialogues` directory.
+The main script is `main.py`. For each request, you'll be asked whether it includes an accompanying image. Type 'exit' to finish and save the dialog.
+You can find the dialogues saved in the `dialogues` directory.
 
