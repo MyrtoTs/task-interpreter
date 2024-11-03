@@ -9,25 +9,21 @@ The Task Interpreter is implemented as a multi-agent system, with the agents bei
 - Evaluation Results: `classifier_evaluation.ipynb`.
 
 ### Prerequisites
-
-1. **Set the OpenAI API key:**
-
-   ```
-   export OPENAI_API_KEY='your_openai_api_key_here'
-   ```
-
-3. **Create and activate the Conda environment:**
+1. **Create and activate the Conda environment:**
 
    ```
    conda your_env_name create -f env.yaml
    conda activate your_env_name
    ```
 
-## Run the Task Interpreter
+2. **Set the OpenAI API key:**
 
-```
-python3 main.py
-```
+   ```
+   export OPENAI_API_KEY='your_openai_api_key_here'
+   ```
 
-You can find the dialogues conducted in `dialogues` directory.
+## Run 
+
+The main script is `main.py`. For each request, you'll be asked whether it includes an accompanying image. Type 'exit' to finish and save the dialog.
+You can find the dialogues saved in the `dialogues` directory.
 
