@@ -7,6 +7,7 @@ from config import llm_config_35, log_config, vessel_msg
 from request_classifier import RequestClassifierAgent
 from chat import ChatAgent
 from vessel_only import VesselAgent
+from image_type import ImageTypeAgent
 
 # Configure logging as per the configuration in config.py
 logging.basicConfig(**log_config)
@@ -19,6 +20,9 @@ chat_agent = ChatAgent(llm_config=llm_config_35, system_message="Welcome to Digi
 
 #Initialize the Vessel Agent
 vessel_agent = VesselAgent(llm_config_35)
+
+#Initialize the Image Type Agent
+image_type_agent = ImageTypeAgent(llm_config_35)
 
 def main():
     messages = [{"role":"assistant","content": "I am DA4DTE. How can I help you?"}]
@@ -58,8 +62,14 @@ def main():
                 is_vessel, certainty = vessel_agent.analyze_vessel_topic(user_input)
                 if is_vessel:
                     a = 'IMAGE_RETRIEVAL_BY_CAPTION'
-            detected_category = a
+            
 
+            elif detected_category == 'IMAGE_RETRIEVAL_BY_IMAGE':
+                is_type_specified, image_type = image_type_agent.determinate_image_type(user_input)
+                if is_type_specified == True:
+                    a = image_type +"_" +detected_category
+
+            detected_category = a
             if answer !="":
                 final_answer=answer
             else:
