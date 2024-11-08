@@ -1,7 +1,7 @@
 # Task Interpreter
 
-The Task Interpreter main funcionalities are: the engine selection to fulfill the user's requests, and the assistant's conversational functionality. Additionally, for the project's needs, it is responsible for limiting the requests sent to the *Image Retrieval by Caption* within the vessel domain.
-The Task Interpreter is implemented as a multi-agent system, with the agents being: a request classifier, a conversational (chat) agent and a vessel agent.
+The Task Interpreter main funcionalities are: the engine selection to fulfill the user's requests, and the assistant's conversational functionality. Additionally, for the project's needs, it is responsible for limiting the requests sent to the *Image Retrieval by Caption* within the vessel domain and determining whether the *Image Retrieval by Image* requests are cross-modal.
+The Task Interpreter is implemented as a multi-agent system, with the agents being: a request classifier, a conversational (chat) agent and the helper ones about vessels and image types.  
 
 ## Performance
 - Dataset and Documentation: `requests_dataset` directory.
